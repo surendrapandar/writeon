@@ -6,7 +6,7 @@ const genAI = new GoogleGenerativeAI(AIAPIKey);
 
 export async function POST(req, res) {
   const body = await req.json();
-  console.log(body.promot);
+  
   const promot = body.promot;
   const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 

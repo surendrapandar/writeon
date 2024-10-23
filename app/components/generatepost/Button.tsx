@@ -10,7 +10,7 @@ export const Button: React.FC<ButtonProps> = ({ variant = "default", children, .
 
   // Apply styles based on the variant
   if (variant === "outline") {
-    className += "w-200px border border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white"; // Ensure border is defined
+    className += "border border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white"; // Ensure border is defined
   } else if (variant === "default") {
     className += "bg-blue-600 text-white hover:bg-blue-700";
   } else {

@@ -9,7 +9,18 @@ export const GeneratePostOutput = ({ output }: { output: any }) => {
       <OutputHeading />
       <CardContent className="flex-grow">
         <div className="w-full h-full min-h-[200px] resize-none p-4 bg-muted rounded-md overflow-auto">
-          {output || "Your generated post will appear here."}
+          {output ? (
+            output
+          ) : (
+            <p
+              style={{
+                color: "#a0a0a0",
+                fontStyle: "italic",
+              }}
+            >
+              Your generated post will appear here....
+            </p>
+          )}
         </div>
       </CardContent>
     </Card>

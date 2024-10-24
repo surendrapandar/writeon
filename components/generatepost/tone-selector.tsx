@@ -29,7 +29,7 @@ export default function ToneSelector({ setTone }: { setTone: any }) {
   return (
     <div className="w-full mt-4">
       {" "}
-      <h2 className="text-2xl font-semi-Bold mb-2">
+      <h2 className="text-2xl font-semibold mb-4 text-gray-800 dark:text-gray-200">
         Select your Tone of Voice
       </h2>
       <div className="flex flex-wrap gap-2">

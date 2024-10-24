@@ -1,13 +1,12 @@
-import React from 'react'
-import { Button } from '../ui/button'
+import React from "react";
+import { Button } from "../ui/button";
 
 export const GeneratePostButton = () => {
   return (
-    <div><Button 
-    type="submit" 
-    className="bg-blue-500"
-  >
-    Generate Post
-  </Button></div>
-  )
-}
+    <div>
+      <Button type="submit" className="bg-blue-500">
+        Generate Post
+      </Button>
+    </div>
+  );
+};

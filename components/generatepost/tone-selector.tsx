@@ -1,14 +1,7 @@
-"use client"
+import React, { useState } from "react";
+import { Button } from "../ui/button";
 
-import { useState } from "react"
-import { Button } from "@/components/ui/button"
-
-type Tone = {
-  emoji: string
-  label: string
-}
-
-const tones: Tone[] = [
+const tones = [
   { emoji: "😃", label: "Excited" },
   { emoji: "💼", label: "Professional" },
   { emoji: "🌟", label: "Encouraging" },
@@ -23,14 +16,22 @@ const tones: Tone[] = [
   { emoji: "😟", label: "Worried" },
   { emoji: "🔥", label: "Passionate" },
   { emoji: "📚", label: "Informative" },
-]
+];
 
-export default function ToneSelector() {
-  const [selectedTone, setSelectedTone] = useState<string | null>(null)
+export default function ToneSelector({ setTone }: { setTone: any }) {
+  const [selectedTone, setSelectedTone] = useState<string | null>(null);
+
+  const handleOnClick = (label: string) => {
+    setSelectedTone(label);
+    setTone(label);
+  };
 
   return (
-    <div className="w-full max-w-3xl mx-auto p-6">
-      <h2 className="text-2xl font-bold mb-4">Select your Tone of Voice</h2>
+    <div className="w-full mt-4">
+      {" "}
+      <h2 className="text-2xl font-semi-Bold mb-2">
+        Select your Tone of Voice
+      </h2>
       <div className="flex flex-wrap gap-2">
         {tones.map((tone) => (
           <Button
@@ -38,9 +39,9 @@ export default function ToneSelector() {
             key={tone.label}
             variant={selectedTone === tone.label ? "default" : "outline"}
             className={`flex items-center gap-2 ${
-              selectedTone === tone.label ? "bg-primary text-primary-foreground" : "bg-background"
+              selectedTone === tone.label ? "" : "bg-background border-border"
             }`}
-            onClick={() => setSelectedTone(tone.label)}
+            onClick={() => handleOnClick(tone.label)}
           >
             <span role="img" aria-label={tone.label}>
               {tone.emoji}
@@ -50,5 +51,5 @@ export default function ToneSelector() {
         ))}
       </div>
     </div>
-  )
+  );
 }

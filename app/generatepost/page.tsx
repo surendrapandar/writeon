@@ -7,6 +7,7 @@ import { GeneratePostOutput } from "@/components/generatepost/output-section";
 export default function PostGenerator() {
   const [message, setMessage] = useState("");
   const [output, setOutput] = useState("");
+  const [tone, setTone] = useState("");
 
   return (
     <div className="flex flex-col sm:flex-row h-screen p-4 gap-4">
@@ -15,6 +16,8 @@ export default function PostGenerator() {
         message={message}
         setMessage={setMessage}
         setOutput={setOutput}
+        tone={tone}
+        setTone={setTone}
       />
 
       {/* output section */}

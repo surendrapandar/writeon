@@ -10,13 +10,18 @@ const GeneratePostInput = ({
   message,
   setMessage,
   setOutput,
+  setTone,
+  tone,
 }: {
   message: any;
   setMessage: any;
   setOutput: any;
+  setTone: any;
+  tone: any;
 }) => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    console.log(tone);
     const response = await axios.post(
       "http://localhost:3000/api/generatepost",
       {
@@ -27,25 +32,23 @@ const GeneratePostInput = ({
     setMessage("");
   };
   return (
-    <div>
-      <Card className="flex-1 flex flex-col">
-        <InputHeading />
-        <form onSubmit={handleSubmit} className="flex flex-col flex-grow">
-          <CardContent className="flex-grow">
-            <Textarea
-              placeholder="Enter your message here..."
-              value={message}
-              onChange={(e) => setMessage(e.target.value)}
-              className="w-full h-full min-h-[200px] resize-none"
-            />
-            <ToneSelector />
-          </CardContent>
-          <CardFooter>
-            <GeneratePostButton />
-          </CardFooter>
-        </form>
-      </Card>
-    </div>
+    <Card className="flex-1 flex flex-col">
+      <InputHeading />
+      <form onSubmit={handleSubmit} className="flex flex-col flex-grow">
+        <CardContent className="flex-grow">
+          <Textarea
+            placeholder="Enter your message here..."
+            value={message}
+            onChange={(e) => setMessage(e.target.value)}
+            className="w-full h-40 resize-none"
+          />
+          <ToneSelector setTone={setTone} />
+        </CardContent>
+        <CardFooter>
+          <GeneratePostButton />
+        </CardFooter>
+      </form>
+    </Card>
   );
 };
 
